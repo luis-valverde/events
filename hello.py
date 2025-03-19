@@ -10,6 +10,8 @@ def get_credentials():
     """Fetch login credentials from environment variables."""
     username = os.getenv("WEB_USERNAME")
     password = os.getenv("WEB_PASSWORD")
+    my_test2 = os.getenv("WEB_TEST2")
+    print(f"my_test2 is {my_test2}")
     if not username or not password:
         raise Exception("Missing credentials in environment variables.")
     return username, password
@@ -90,7 +92,7 @@ def main():
     driver = init_browser()
     try:
         login_to_webpage(driver, username, password)
-        refresh_posts(driver)
+        #refresh_posts(driver)
     finally:
         driver.quit()
 
