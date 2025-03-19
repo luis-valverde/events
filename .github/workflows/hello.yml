@@ -1,4 +1,4 @@
-name: Print Hello Every 1 Minute
+name: Print Hello Every 5 Minutes
 
 on:
   schedule:
