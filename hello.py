@@ -32,7 +32,7 @@ def init_browser():
 def login_to_webpage(driver, username, password):
     """Automate login into the given URL with provided credentials."""
     print("Starting to login")
-    driver.get("https://justfor.fans/login.php")
+    driver.get("https://justfor.fans/login")
     time.sleep(2)
 
     login_email_username = driver.find_element(By.NAME, "Email").send_keys(username)
