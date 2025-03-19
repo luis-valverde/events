@@ -35,7 +35,7 @@ def login_to_webpage(driver, username, password):
     driver.get("https://justfor.fans/login")
     time.sleep(2)
     print(f"-- {username}")
-    login_email_username = driver.find_element(By.NAME, "Email").send_keys(f"{username}"))
+    login_email_username = driver.find_element(By.NAME, "Email").send_keys(f"{username}")
     login_password = driver.find_element(By.NAME, "Password").send_keys(password)
 
     login_submit = driver.find_element(By.CLASS_NAME, "homepageButton")
