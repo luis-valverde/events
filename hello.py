@@ -86,7 +86,6 @@ def refresh_posts(driver):
 
 def main():
     """Run the full login process."""
-    username, password = get_credentials()
     driver = init_browser()
     try:
         login_to_webpage(driver)
