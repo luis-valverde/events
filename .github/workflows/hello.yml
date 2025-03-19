@@ -9,8 +9,8 @@ jobs:
   print_hello:
     runs-on: ubuntu-latest
     env:
-      WEB_USERNAME: ${{ vars.WEB_USERNAME }}
-      WEB_PASSWORD: ${{ vars.WEB_PASSWORD }}
+      WEB_USERNAME: ${{ secrets.WEB_USERNAME }}
+      WEB_PASSWORD: ${{ secrets.WEB_PASSWORD }}
       WEB_TEST: ${{ secrets.WEB_TEST }}
       WEB_TEST2: ${{ vars.WEB_TEST }}
     steps:
