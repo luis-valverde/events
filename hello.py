@@ -65,6 +65,7 @@ def refresh_post(driver):
         time.sleep(15)
         return True
     except Exception as e:
+        print(f"Exception is: {e}")
         return False
       
 def refresh_posts(driver):
