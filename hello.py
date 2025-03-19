@@ -6,18 +6,6 @@ from selenium.webdriver.chrome.options import Options
 import time
 
 
-def get_credentials():
-    """Fetch login credentials from environment variables."""
-    username = os.getenv("WEB_USERNAME")
-    password = os.getenv("WEB_PASSWORD")
-    my_test2 = os.getenv("WEB_TEST2")
-    print(f"my_test2 is {my_test2}")
-    print(f"pa is {username[:2]}")
-    if not username or not password:
-        raise Exception("Missing credentials in environment variables.")
-    return username, password
-
-
 def init_browser():
     """Initialize and return a Chrome browser instance."""
     print("Starting to init the driver")
@@ -29,16 +17,20 @@ def init_browser():
     return driver
 
 
-def login_to_webpage(driver, username, password):
+def login_to_webpage(driver):
     """Automate login into the given URL with provided credentials."""
+    username = os.getenv("WEB_USERNAME")
+    password = os.getenv("WEB_PASSWORD")
+    url = os.getenv("WEB_URL")
+    profile = os.getenv("WEB_PROFILE")
+    
     print("Starting to login")
-    driver.get("https://justfor.fans/login")
+    driver.get(url)
     time.sleep(2)
     
     login_email_username = driver.find_element(By.NAME, "Email")
     login_email_username.send_keys(username)
     text = login_email_username.get_attribute("value")
-    print(f"-- {text}")
     
     login_password = driver.find_element(By.NAME, "Password")
     login_password.send_keys(password)
@@ -48,7 +40,7 @@ def login_to_webpage(driver, username, password):
     time.sleep(3)
     print(f"Login URL is: {driver.current_url}")
 
-    driver.get("https://justfor.fans/throat_for_u")
+    driver.get(profile)
     driver.refresh()
     time.sleep(3)
     print(f"Login successful. URL is: {driver.current_url}")
@@ -97,8 +89,8 @@ def main():
     username, password = get_credentials()
     driver = init_browser()
     try:
-        login_to_webpage(driver, username, password)
-        #refresh_posts(driver)
+        login_to_webpage(driver)
+        refresh_posts(driver)
     finally:
         driver.quit()
 
