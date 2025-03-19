@@ -11,6 +11,7 @@ jobs:
     env:
       WEB_USERNAME: ${{ secrets.WEB_USERNAME }}
       WEB_PASSWORD: ${{ secrets.WEB_PASSWORD }}
+      WEB_TEST: ${{ secrets.WEB_TEST }}
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
