@@ -38,11 +38,12 @@ def login_to_webpage(driver, username, password):
     login_submit = driver.find_element(By.CLASS_NAME, "homepageButton")
     login_submit.click()
     time.sleep(3)
+    print(f"Login URL is: {driver.current_url}")
 
     driver.get("https://justfor.fans/throat_for_u")
     driver.refresh()
     time.sleep(3)
-    print("Login successful")
+    print(f"Login successful. URL is: {driver.current_url}")
 
 def refresh_post(driver):
     try:
