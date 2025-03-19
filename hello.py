@@ -34,7 +34,7 @@ def login_to_webpage(driver, username, password):
     print("Starting to login")
     driver.get("https://justfor.fans/login")
     time.sleep(2)
-
+    print(f"-- {username}")
     login_email_username = driver.find_element(By.NAME, "Email").send_keys("username@gmail.com")
     login_password = driver.find_element(By.NAME, "Password").send_keys(password)
 
